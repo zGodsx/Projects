@@ -1,0 +1,57 @@
+/*
+ *Assignment 3
+ *Description: BMIHISTORY
+ *Name: Matthew Cline
+ */
+package com.company;
+import java.util.Scanner;
+
+public class bmihistorypro {
+   static int feet;
+   static int inches;
+   static int low;
+   static int high;
+
+    public static void main(String[] args) {
+
+        //using scanner to get users input
+        Scanner scan = new Scanner(System.in);
+        //getting user input for feet and inches
+        System.out.print("Enter your height in feet and inches: ");
+        feet = scan.nextInt();
+        inches = scan.nextInt();
+        //getting user input for low and high weight
+        System.out.print("Enter the low weight in pounds:  ");
+        low = scan.nextInt();
+        System.out.print("Enter the high weight in pounds:  ");
+        high = scan.nextInt();
+        //for the table
+        System.out.println("");
+        System.out.println("WEIGHT    BMI          CONDITION");
+
+
+
+        // using a for loop to calculate low and high
+        for (int i = low; i <= high; i+=5) {
+            // Calculating Bmi based on user input
+            int height = (feet * 12) + inches;
+            double weight = 150 / 2.2046;
+            //using math.pow from lecture
+            double bmi = (703 * i) / Math.pow(height, 2);
+
+
+          //  double height = ((6 * 12) + 1) * 0.0254;
+
+            //print out table for weight using \t
+            System.out.print(i + "\t  ");
+            // print out table for BMI using \t
+            System.out.print(String.format("  %.4f",bmi) + " \t");
+            // printing out whether overweight or not
+            if (bmi > 25)
+                System.out.println(" overweight");
+            else
+                System.out.println(" not overweight");
+        }
+    }
+}
+
