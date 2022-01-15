@@ -1,0 +1,77 @@
+/*
+ *Description: MenuOrder
+ *Name: Matthew Cline
+ */
+package com.company;
+
+import java.util.Scanner;
+
+public class Order {
+    public static void main(String[] args)
+    {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Welcome to Ilmi's restaurant!");
+        //menu selection -1 to make it exit out after 0
+        int menu = -1;
+        int total = 0;
+        do {
+            //function menu_received
+            menu = menu_received();
+            //if menu item 1 chosen
+            if (menu == 1) {
+                System.out.println("Thank you for ordering Bulgogi");
+                total = total + 15;
+                System.out.println("Your Total is " + total);
+                //if menu item 2 chosen
+            } else if (menu == 2) {
+                System.out.println("Thank you for ordering Kalbi");
+                total = total + 18;
+                System.out.println("Your Total is " + total);
+                //if menu item 3 chosen
+            } else if (menu == 3) {
+                System.out.println("Thank you for ordering Kimchi Fried Rice");
+                total = total + 16;
+                System.out.println("Your Total is " + total);
+            }
+            //if 0 is chosen then ask for tax percentage and total
+            else if (menu == 0)
+            {
+                //calling tip caluclation from tip_calculator below
+                double tip_amt = tip_calculator(total);
+                //Calculate total after tax
+                double taxamount = total * 0.05 + total;
+                System.out.println("Total amount after tax is " + taxamount);
+                System.out.println("Thank you and enjoy the food and come again! ");
+            }
+
+
+        //exit menu
+        } while (menu != 0);
+
+    }
+    public static int menu_received ()
+    {
+        //prints menu items and price then ask for selection
+        Scanner input = new Scanner(System.in);
+        System.out.println("Here is our menu! ");
+        System.out.println("1. Bulgogi ------------ $15.00 ");
+        System.out.println("2. Kalbi -------------- $18.00 ");
+        System.out.println("3. Kimchi Fried Rice -- $16.00 ");
+        System.out.println("Please choose one option at one time using the number ( 0 for the end of order)");
+
+        int Selection = input.nextInt();
+        return Selection;
+    }
+
+    //calculate the tip amount and return it
+    public static double tip_calculator(int total)
+    {
+        //caculations for tax taking in users input
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Please enter tip percentage : ");
+        double percent = sc.nextDouble();
+        double tip=(double)total * percent/100;
+        return tip;
+    }
+}
