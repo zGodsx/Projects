@@ -1,0 +1,71 @@
+/*
+ *Description: Cardpick
+ *Name: Matthew Cline
+ */
+package com.company;
+import java.util.Random;
+public class CardPick {
+
+    public static void main(String[] args) {
+            //declaring random
+            Random rand = new Random();
+           // setting random between 0 - 52
+            int number = rand.nextInt(52);
+            //card suit
+            String suit;
+            //Card name
+            String type;
+
+            //declaring the suit, name and number depending on random  card pulled
+            if (number <= 12) {//anything less or equal to 12 will be Clover (Charts stops at 12)
+                 suit = "Clover";
+                 type = Cardpick(number);
+            //declaring anything thats less than or equal to 25 and anything greater than 12 is spades
+            } else if (number > 12 && number <= 25) {
+                suit = "Spades";
+                type = Cardpick(number);
+            //declaring anything less than or equal to 38 and less than 25 is Diamond
+            } else if ( number > 25 && number <= 38) {
+                suit = "Diamond";
+                type = Cardpick(number);
+            //declaring anything else from 39 to 51 is hearts
+            } else {//if(number >= 39){ // 39 - 51 remaining
+                suit = "Heart";
+                type = Cardpick(number);
+
+            }
+            System.out.println("I got " + number + " which is " + suit + " " +  type);
+        }
+    //used cardpick(int r) to return the pick of the card. Used String to return words such as "Ace,King, Queen"
+    public static String Cardpick(int n) {
+
+        //Method of assigning cards
+         if (n == 0 || n == 13 || n == 26 || n == 39)
+            return "Ace";
+        else if (n == 1 || n == 14 || n == 27 || n == 40)
+            return "2";
+        else if (n == 2 || n == 15 || n == 28 || n == 41)
+            return "3";
+        else if (n == 3 || n == 16 || n == 29 || n == 42)
+            return "4";
+        else if (n == 4 || n == 17 || n == 30 || n == 43)
+            return "5";
+        else if (n == 5 || n == 18 || n == 31 || n == 44)
+            return "6";
+        else if (n == 6 || n == 19 || n == 32 || n == 45)
+            return "7";
+        else if (n == 7 || n == 20 || n == 33 || n == 46)
+            return "8";
+        else if (n == 8 || n == 21 || n == 34 || n == 47)
+            return "9";
+        else if (n == 9 || n == 22 || n == 35 || n == 48)
+            return "10";
+        else if (n == 10 || n == 23 || n == 36 || n == 49)
+            return "jack";
+        else if (n == 11 || n == 24 || n == 37 || n == 50)
+            return "queen";
+
+
+        return "King";
+    }
+    }
