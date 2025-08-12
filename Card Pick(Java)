@@ -1,6 +1,5 @@
 /*
  *Description: Cardpick
- *Name: Matthew Cline
  */
 package com.company;
 import java.util.Random;
