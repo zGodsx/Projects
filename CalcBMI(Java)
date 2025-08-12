@@ -1,6 +1,5 @@
 /*
  *Description: BMIHISTORY
- *Name: Matthew Cline
  */
 package com.company;
 import java.util.Scanner;
